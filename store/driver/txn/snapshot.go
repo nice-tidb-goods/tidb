@@ -130,6 +130,8 @@ func (s *tikvSnapshot) SetOption(opt int, val interface{}) {
 		s.KVSnapshot.SetRequestSourceType(val.(string))
 	case kv.ReplicaReadAdjuster:
 		s.KVSnapshot.SetReplicaReadAdjuster(val.(txnkv.ReplicaReadAdjuster))
+	case kv.UseXDP:
+		s.KVSnapshot.SetUseXDP(true)
 	}
 }
 

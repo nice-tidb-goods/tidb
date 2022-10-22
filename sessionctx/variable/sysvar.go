@@ -249,6 +249,10 @@ var defaultSysVars = []*SysVar{
 		s.WaitSplitRegionFinish = TiDBOptOn(val)
 		return nil
 	}},
+	{Scope: ScopeSession, Name: TiDBUseXDP, Value: BoolToOnOff(false), skipInit: true, Type: TypeBool, SetSession: func(s *SessionVars, val string) error {
+		s.UseXDP = TiDBOptOn(val)
+		return nil
+	}},
 	{Scope: ScopeSession, Name: TiDBWaitSplitRegionTimeout, Value: strconv.Itoa(DefWaitSplitRegionTimeout), skipInit: true, Type: TypeUnsigned, MinValue: 1, MaxValue: math.MaxInt32, SetSession: func(s *SessionVars, val string) error {
 		s.WaitSplitRegionTimeout = uint64(tidbOptPositiveInt32(val, DefWaitSplitRegionTimeout))
 		return nil

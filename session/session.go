@@ -2025,6 +2025,13 @@ func (s *session) ExecuteStmt(ctx context.Context, stmtNode ast.StmtNode) (sqlex
 	stmtLabel := ast.GetStmtLabel(stmtNode)
 	s.setRequestSource(ctx, stmtLabel, stmtNode)
 
+	//if s.sessionVars.UseXDP {
+	//	ctx = context.WithValue(ctx, tikvutil.UseXDPKey, tikvutil.UseXDPKey)
+	//	if txn, _ := s.Txn(false); txn != nil && txn.Valid() {
+	//		txn.SetOption(kv.UseXDP, true)
+	//	}
+	//}
+
 	// Transform abstract syntax tree to a physical plan(stored in executor.ExecStmt).
 	compiler := executor.Compiler{Ctx: s}
 	stmt, err := compiler.Compile(ctx, stmtNode)

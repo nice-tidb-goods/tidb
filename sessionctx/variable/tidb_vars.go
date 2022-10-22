@@ -488,6 +488,8 @@ const (
 	// TiDBWaitSplitRegionFinish defines the split region behaviour is sync or async.
 	TiDBWaitSplitRegionFinish = "tidb_wait_split_region_finish"
 
+	TiDBUseXDP = "tidb_use_xdp"
+
 	// TiDBWaitSplitRegionTimeout uses to set the split and scatter region back off time.
 	TiDBWaitSplitRegionTimeout = "tidb_wait_split_region_timeout"
 

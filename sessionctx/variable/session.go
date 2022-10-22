@@ -928,6 +928,8 @@ type SessionVars struct {
 	// DDLReorgPriority is the operation priority of adding indices.
 	DDLReorgPriority int
 
+	UseXDP bool
+
 	// EnableAutoIncrementInGenerated is used to control whether to allow auto incremented columns in generated columns.
 	EnableAutoIncrementInGenerated bool
 
